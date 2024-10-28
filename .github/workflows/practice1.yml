@@ -19,6 +19,7 @@ jobs:
              cd "Code/02 Basics/02 Starting Project"
              npm test
   deploy:
+    needs: test
     runs-on: ubuntu-latest
     steps: 
       - name: Get code
