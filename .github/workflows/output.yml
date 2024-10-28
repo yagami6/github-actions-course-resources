@@ -4,5 +4,5 @@ jobs:
   infoJob:
     runs-on: ubuntu-latest
     steps:
-      - name: Output Hithub context
+      - name: Output Github context
         run: echo "${{ toJSON(github) }}"
