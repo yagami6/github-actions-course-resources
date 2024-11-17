@@ -21,6 +21,8 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{ steps.publish.outputs.script-file }}
     steps: 
       - name: Get code
         uses:  actions/checkout@v3
@@ -32,6 +34,9 @@ jobs:
         run: |
               cd "Code/02 Basics/02 Starting Project"
               npm ci
+      - name: Publish JS filename
+        id: publish
+        run: find 'Code/02 Basics/02 Starting Project/dist/*.js' -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
       - name: Build Project
         run: |
               cd "Code/02 Basics/02 Starting Project"
@@ -45,3 +50,9 @@ jobs:
               Code/02 Basics/02 Starting Project/package.json
       - name: Deploy
         run: echo "Deploying ..."
+  publish:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Output file name
+        run: echo "${{ needs.deploy.outputs.script-file }}"
