@@ -34,13 +34,13 @@ jobs:
         run: |
               cd "Code/02 Basics/02 Starting Project"
               npm ci
-      - name: Publish JS filename
-        id: publish
-        run: find "Code/02 Basics/02 Starting Project/dist/" -type f -name '*.js' -exec sh -c 'echo "script-file={}" >> "$GITHUB_OUTPUT"' \;
       - name: Build Project
         run: |
               cd "Code/02 Basics/02 Starting Project"
               npm run build
+      - name: Publish JS filename
+        id: publish
+        run: find "Code/02 Basics/02 Starting Project/dist/" -type f -name '*.js' -exec sh -c 'echo "script-file={}" >> "$GITHUB_OUTPUT"' \;    
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
