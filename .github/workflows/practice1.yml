@@ -36,7 +36,7 @@ jobs:
               npm ci
       - name: Publish JS filename
         id: publish
-        run: find 'Code/02 Basics/02 Starting Project/dist/*.js' -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
+        run: find Code/02 Basics/02 Starting Project/dist/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
       - name: Build Project
         run: |
               cd "Code/02 Basics/02 Starting Project"
