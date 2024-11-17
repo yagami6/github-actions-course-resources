@@ -41,7 +41,7 @@ jobs:
         with:
           name: dist-files
           path: |
-              dist
-              package.json
+              Code/02 Basics/02 Starting Projectdist
+              Code/02 Basics/02 Starting Project/package.json
       - name: Deploy
         run: echo "Deploying ..."
