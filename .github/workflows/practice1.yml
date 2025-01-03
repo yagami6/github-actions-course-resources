@@ -6,6 +6,8 @@ env:
 jobs:
   reusable:
     uses: ./.github/workflows/reusable.yml
+    with: 
+      artifact-name: apple
   test:
     runs-on: ubuntu-latest
     steps:
