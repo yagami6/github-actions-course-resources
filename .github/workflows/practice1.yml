@@ -5,7 +5,7 @@ env:
   
 jobs:
   reusable:
-    uses: ./github-actions-course-resources/.github/workflows/reusable.yml
+    uses: ./.github/workflows/reusable.yml
   test:
     runs-on: ubuntu-latest
     steps:
