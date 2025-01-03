@@ -4,6 +4,8 @@ env:
   MONGODB_DB_NAME: gha-demo
   
 jobs:
+  reusable:
+    uses: ./github-actions-course-resources/.github/workflows/reusable.yml
   test:
     runs-on: ubuntu-latest
     steps:
